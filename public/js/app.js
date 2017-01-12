@@ -4,8 +4,15 @@ var socket = io();
 
 console.log(name + ' wants to join ' + room);
 
+//Update h1 tag. room-title is a class name of h1 tag in chat.html
+jQuery('.room-title').text(room);
+
 socket.on('connect', function(){
   console.log('Connected to socket.io server!');
+  socket.emit('joinRoom', {//the name joinRoom is not special
+    name: name,
+    room, room
+  });
 });
 //Print message on the screen when received from the server
 socket.on('message', function(message){
