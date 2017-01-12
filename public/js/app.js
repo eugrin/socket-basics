@@ -7,7 +7,7 @@ console.log(name + ' wants to join ' + room);
 socket.on('connect', function(){
   console.log('Connected to socket.io server!');
 });
-
+//Print message on the screen when received from the server
 socket.on('message', function(message){
   var momentTimestamp = moment.utc(message.timestamp);
   var $message = jQuery('.messages');
